@@ -1,0 +1,48 @@
+<div fxLayout fxLayoutAlign="center">
+    <mat-form-field fxFlex="20%">
+      <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Designation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Designation </th>
+      <td mat-cell *matCellDef="let element"> {{element.Designation}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Phonenumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+      <td mat-cell *matCellDef="let element"> {{element.Phone_number}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="EmailId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.Email_id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="AddBy">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Add By </th>
+        <td mat-cell *matCellDef="let element"> {{element.Add_by}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="UserId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> UserId </th>
+          <td mat-cell *matCellDef="let element"> {{element.user_id}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Level">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Level </th>
+          <td mat-cell *matCellDef="let element"> {{element.Level}} </td>
+        </ng-container>
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 30]">
+  </mat-paginator>
