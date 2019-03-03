@@ -38,12 +38,12 @@
       <a
         mat-list-item
         class="sidenav-link"
-        routerLink="comp2"
+        [routerLink]="['/add-user']"
         (click)="sidenav.toggle()"
         *ngIf="isLoggedIn()"
       >
-        <mat-icon mat-list-icon>android</mat-icon>
-        <span class="title" mat-line>comp2</span>
+        <mat-icon mat-list-icon>person_add</mat-icon>
+        <span class="title" mat-line>Add User</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>

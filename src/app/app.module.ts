@@ -5,18 +5,20 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponentComponent } from './login-component/login-component.component';
+import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainScreenComponent } from './main-screen/main-screen.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponentComponent,
+    LoginComponent,
     MainScreenComponent,
-    DataTableComponent
+    DataTableComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +29,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/', pathMatch: 'full' },
-      { path: 'login', component: LoginComponentComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'main-screen', component: MainScreenComponent },
-      { path: 'data-table', component: DataTableComponent }
+      { path: 'data-table', component: DataTableComponent },
+      { path: 'add-user', component: AddUserComponent }
     ]),
   ],
   providers: [],

@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { DataTableService } from '../services/data-table.service';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { User } from '../model/User';
+import { UserService } from '../services/user.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-data-table',
@@ -15,7 +16,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
-  constructor(private dataTableService: DataTableService) { 
+  constructor(private userService: UserService, private loginService: LoginService) { 
   }
 
   ngOnInit() {
@@ -28,15 +29,13 @@ export class DataTableComponent implements OnInit, AfterViewInit {
  }
 
   getUserList(): any {
-    this.dataTableService.getUserList('1')
+    this.userService.getUserList(this.loginService.emailId)
       .subscribe(
-        r => {
-          this.dataSource.data = r.data as User[];
-          console.log(r.data);
-          console.log(this.dataSource.data);
+        response => {
+          this.dataSource.data = response.data as User[];
         },
-        r => {
-          alert(r.error.error);
+        errorResponse => {
+          console.log(errorResponse.error.error);
         });
   }
   

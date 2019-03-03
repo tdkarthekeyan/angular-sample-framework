@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 
 @Component({
-  selector: 'app-login-component',
-  templateUrl: './login-component.component.html',
-  styleUrls: ['./login-component.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponentComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService, private router: Router) { }
 
@@ -23,17 +23,18 @@ export class LoginComponentComponent implements OnInit {
       this.password
     )
       .subscribe(
-        r => {
-          console.log(r.data);
-          if (r.data !== 'Invalid Account') {
+        response => {
+          console.log(response.data);
+          if (response.data !== 'Invalid Account') {
             this.loginService.isLoggedIn = true;
-            this.loginService.setUserName(r.data[0].Name);
+            this.loginService.setUserName(response.data[0].Name);
+            this.loginService.setEmailId(response.data[0].Email_id);
             this.router.navigateByUrl('/main-screen');
           }
         },
-        r => {
+        errorResponse => {
           this.loginService.logout();
-          alert(r.error.error);
+          alert(errorResponse.error.error);
         });
   }
 }
