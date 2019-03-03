@@ -3,6 +3,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { User } from '../model/User';
 import { UserService } from '../services/user.service';
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-data-table',
@@ -16,7 +17,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
-  constructor(private userService: UserService, private loginService: LoginService) { 
+  constructor(private userService: UserService, private loginService: LoginService, private router: Router) { 
   }
 
   ngOnInit() {
@@ -41,6 +42,11 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   
   public doFilter = (value: string) => {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
+
+  onClickAddUser(): void {
+    console.log("Add user clicked");
+    this.router.navigateByUrl('/add-user');
   }
   
 }

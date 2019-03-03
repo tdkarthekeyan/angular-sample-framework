@@ -56,4 +56,8 @@ export class AddUserComponent implements OnInit {
           });
     }
   }
+
+  onCancel(): void {
+    this.router.navigateByUrl('/data-table');
+  }
 }

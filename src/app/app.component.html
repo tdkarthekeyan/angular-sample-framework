@@ -45,6 +45,16 @@
         <mat-icon mat-list-icon>person_add</mat-icon>
         <span class="title" mat-line>Add User</span>
       </a>
+      <a
+        mat-list-item
+        class="sidenav-link"
+        [routerLink]="['/maps']"
+        (click)="sidenav.toggle()"
+        *ngIf="isLoggedIn()"
+      >
+        <mat-icon mat-list-icon>map</mat-icon>
+        <span class="title" mat-line>Maps</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar id="appToolbar" color="primary">
