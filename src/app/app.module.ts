@@ -14,6 +14,8 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { MapsComponent } from './maps/maps.component';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
+import { EmbedVideo } from 'ngx-embed-video';
+import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AgmDirectionModule } from 'agm-direction';
     MainScreenComponent,
     DataTableComponent,
     AddUserComponent,
-    MapsComponent
+    MapsComponent,
+    VideoViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -37,13 +40,15 @@ import { AgmDirectionModule } from 'agm-direction';
       { path: 'main-screen', component: MainScreenComponent },
       { path: 'data-table', component: DataTableComponent },
       { path: 'add-user', component: AddUserComponent },
-      { path: 'maps', component: MapsComponent }
+      { path: 'maps', component: MapsComponent },
+      { path: 'video-viewer', component: VideoViewerComponent }
     ]),
     AgmDirectionModule,
     AgmCoreModule.forRoot({
       // apiKey: 'AIzaSyD513TlwlLW0lxtHCQ_yGpwYqryOKcWDGc'
       apiKey: 'AIzaSyDFTKbcSXEN22pUx3zfaabEOGyy7oOZtmI'
-    })
+    }),
+    EmbedVideo.forRoot()
   ],
   providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]

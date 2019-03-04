@@ -28,4 +28,11 @@ export class AppComponent {
     this.loginService.logout();
     this.router.navigateByUrl('/login');
   }
+
+  onTitleClick(): void {
+    console.log(this.loginService.isLoggedIn);
+    if (this.loginService.isLoggedIn) {
+      this.router.navigateByUrl('/main-screen');
+    }
+  }
 }

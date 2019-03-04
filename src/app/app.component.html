@@ -55,6 +55,16 @@
         <mat-icon mat-list-icon>map</mat-icon>
         <span class="title" mat-line>Maps</span>
       </a>
+      <a
+        mat-list-item
+        class="sidenav-link"
+        [routerLink]="['/video-viewer']"
+        (click)="sidenav.toggle()"
+        *ngIf="isLoggedIn()"
+      >
+        <mat-icon mat-list-icon>play_circle_outline</mat-icon>
+        <span class="title" mat-line>Viedo Viewer</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar id="appToolbar" color="primary">
@@ -67,7 +77,7 @@
       <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
     </button>
     <h1 class="component-title">
-      <a class="title-link">{{ title }}</a>
+      <a class="title-link" (click)="onTitleClick()">{{ title }}</a>
     </h1>
     <span class="toolbar-filler"></span>
     <button id="button-login" mat-button [routerLink]="['/login']">
