@@ -10,7 +10,8 @@ const MATERIAL_MODULES = [
   NG_MAT.MatCardModule,
   NG_MAT.MatInputModule,
   NG_MAT.MatListModule,
-  NG_MAT.MatToolbarModule
+  NG_MAT.MatToolbarModule,
+  NG_MAT.MatGridListModule
 ];
 @NgModule({
   imports: MATERIAL_MODULES,
