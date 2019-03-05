@@ -65,6 +65,16 @@
         <mat-icon mat-list-icon>play_circle_outline</mat-icon>
         <span class="title" mat-line>Viedo Viewer</span>
       </a>
+      <a
+      mat-list-item
+      class="sidenav-link"
+      [routerLink]="['/web-viewer']"
+      (click)="sidenav.toggle()"
+      *ngIf="isLoggedIn()"
+    >
+      <mat-icon mat-list-icon>web</mat-icon>
+      <span class="title" mat-line>Web Viewer</span>
+    </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar id="appToolbar" color="primary">
@@ -80,7 +90,7 @@
       <a class="title-link" (click)="onTitleClick()">{{ title }}</a>
     </h1>
     <span class="toolbar-filler"></span>
-    <button id="button-login" mat-button [routerLink]="['/login']">
+    <button id="button-login" mat-button (click)="onIdentityClick()">
       <mat-icon aria-label="Menu" class="material-icons"
         >perm_identity</mat-icon
       >
