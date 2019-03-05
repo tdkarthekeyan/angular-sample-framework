@@ -30,9 +30,16 @@ export class AppComponent {
   }
 
   onTitleClick(): void {
-    console.log(this.loginService.isLoggedIn);
     if (this.loginService.isLoggedIn) {
       this.router.navigateByUrl('/main-screen');
+    }
+  }
+
+  onIdentityClick(): void {
+    if (this.loginService.isLoggedIn) {
+      this.router.navigateByUrl('/main-screen');
+    } else {
+      this.router.navigateByUrl('/login');
     }
   }
 }

@@ -17,7 +17,12 @@
       <span>Google Maps</span>
     </a>
   </mat-grid-tile>
-  <mat-grid-tile>Web Viewer</mat-grid-tile>
+  <mat-grid-tile>
+      <a class="sidenav-link" [routerLink]="['/web-viewer']">
+        <mat-icon mat-list-icon>web</mat-icon>
+        <span>Web Viewer</span>
+      </a>
+     </mat-grid-tile>
   <mat-grid-tile>
     <a class="sidenav-link" [routerLink]="['/video-viewer']">
       <mat-icon mat-list-icon>play_circle_outline</mat-icon>
