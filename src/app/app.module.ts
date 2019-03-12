@@ -17,6 +17,7 @@ import { AgmDirectionModule } from 'agm-direction';
 import { EmbedVideo } from 'ngx-embed-video';
 import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 import { WebViewerComponent } from './web-viewer/web-viewer.component';
+import { MdcTopAppBarWithTabsComponent } from './mdc-top-app-bar-with-tabs/mdc-top-app-bar-with-tabs.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { WebViewerComponent } from './web-viewer/web-viewer.component';
     AddUserComponent,
     MapsComponent,
     VideoViewerComponent,
-    WebViewerComponent
+    WebViewerComponent,
+    MdcTopAppBarWithTabsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { WebViewerComponent } from './web-viewer/web-viewer.component';
       { path: 'add-user', component: AddUserComponent },
       { path: 'maps', component: MapsComponent },
       { path: 'video-viewer', component: VideoViewerComponent },
-      { path: 'web-viewer', component: WebViewerComponent }
+      { path: 'web-viewer', component: WebViewerComponent },
+      { path: 'mdc-top-app-bar-with-tabs', component: MdcTopAppBarWithTabsComponent }
     ]),
     AgmDirectionModule,
     AgmCoreModule.forRoot({
